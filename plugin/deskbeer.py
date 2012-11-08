@@ -74,6 +74,7 @@ def deskbeer_message():
     return decide_deskbeer_message(now)
 
 @helpers.commands('deskbeer')
+@helpers.throttling(5, 2)
 def deskbeer(bot, conn, event):
     conn.privmsg(event.target(), deskbeer_message())
 
